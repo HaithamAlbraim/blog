@@ -28,6 +28,7 @@ class CommentController extends Controller
         if($unread_note)
         {
         $unread_note->markAsRead();
+        header("Refresh:0");
         }
         // print_r($unread_note);
         $comment=Comment::find($cid);
@@ -61,11 +62,11 @@ class CommentController extends Controller
 
     $comment_r=Comment::find($comment->id);
     $post_title=$comment_r->post->title;
-      $user_id=$request->resever_user;
-      $user=User::where('id','=',$user_id)->first();
+      $resever_id=$request->resever_user;
+      $resever=User::where('id','=',$resever_id)->first();
       $created_by=Auth::user()->name ;     
 
-      Notification::send($user,new CreateComment($comment->id,$created_by,$post_title));
+      Notification::send($resever,new CreateComment($comment->id,$created_by,$post_title));
     
       return redirect()->back();
         
