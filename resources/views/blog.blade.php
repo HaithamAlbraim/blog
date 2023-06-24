@@ -21,10 +21,10 @@
     
     <div class="card-footer">
      {{-- Modal --}}
-     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{$post->id}}">
       Comment
     </button>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+    <div class="modal fade" id="exampleModal{{$post->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
     <div class=" modal-dialog modal-dialog-centered modal-dialog-scrollable"  >
         <div class="modal-content">
           <div class="modal-header">
